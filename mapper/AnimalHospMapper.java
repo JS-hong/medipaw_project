@@ -6,7 +6,7 @@ import org.medipaw.domain.AnimalHospVO;
 import org.medipaw.domain.Criteria;
 
 public interface AnimalHospMapper {
-	public List<AnimalHospVO> selectAllPaging(Criteria cri);//페이징
+	public List<AnimalHospVO> selectAllPaging(Criteria cri);//페이징	
 	public int totalCount(Criteria cri);//페이징
 	public int update(AnimalHospVO avo);//동물병원 정보 수정
 	public int delete(int ano);//동물병원 정보 삭제

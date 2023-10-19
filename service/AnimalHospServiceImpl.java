@@ -15,15 +15,15 @@ import org.medipaw.mapper.AnimalHospMapper;
 public class AnimalHospServiceImpl implements AnimalHospService {
 	private final AnimalHospMapper animalHospMapper;
 	@Override
-	public List<AnimalHospVO> selectAllPaging(Criteria cri) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<AnimalHospVO> selectAllPaging(Criteria cri) {//여기서 시작 Mapper 접근해서 데이터 불러옴 그리고 데이터 Vo 에 저장하는듯		
+		log.info("list..........");
+		return animalHospMapper.selectAllPaging(cri);
 	}
 
 	@Override
 	public int totalCount(Criteria cri) {
-		// TODO Auto-generated method stub
-		return 0;
+		log.info("totalCount..........");
+		return animalHospMapper.totalCount(cri);
 	}
 
 	@Override
