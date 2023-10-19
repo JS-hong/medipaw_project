@@ -10,15 +10,25 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+//import org.zerock.controller.BoardController;
+//import org.zerock.service.BoardService;
 
+import lombok.AllArgsConstructor;
+import lombok.extern.log4j.Log4j;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.medipaw.domain.AnimalHospVO;
 import org.medipaw.domain.Criteria;
 import org.medipaw.domain.PageDTO;
 import org.medipaw.service.AnimalHospService;
 
+@Log4j
+@AllArgsConstructor
 @Controller
 @RequestMapping("/animalhosp/*")
 public class AnimalHospController {
@@ -29,14 +39,18 @@ public class AnimalHospController {
 		System.out.println("test 작동 확인");
 	    return "animalhosp";
 	}
-	
-	@GetMapping("list")//전체목록
-	public void list(Model model, Criteria cri) {
-		model.addAttribute("list", animalHospService.selectAllPaging(cri));
-		int totalCount = animalHospService.totalCount(cri);
-		model.addAttribute("pageDTO", new PageDTO(cri, totalCount));
-	}
 
+	@GetMapping("list")
+	@ResponseBody
+	public ResponseEntity<Map<String, Object>> list(Criteria cri) {
+	    List<AnimalHospVO> hospitalList = animalHospService.selectAllPaging(cri);
+	    int totalCount = animalHospService.totalCount(cri);
+	    PageDTO pageDTO = new PageDTO(cri, totalCount);
+	    Map<String, Object> response = new HashMap<>();
+	    response.put("hospitals", hospitalList);
+	    response.put("pageMaker", pageDTO); // Add this line  
+	    return new ResponseEntity<>(response, HttpStatus.OK);
+	}
 	@GetMapping("view")//상세조회
 	public void view(@RequestParam("ano") int ano, Model model,
 				     @ModelAttribute("cri") Criteria cri) {
@@ -47,7 +61,7 @@ public class AnimalHospController {
 	@PreAuthorize("isAuthenticated()")
 	public String register(AnimalHospVO avo, RedirectAttributes rttr) { 
 		if(animalHospService.register(avo)) {
-			rttr.addFlashAttribute("result", avo.getANo());
+			rttr.addFlashAttribute("result", avo.getAnimalhosp_no());
 		return "redirect:/animalhosp/list";
 		}
 		return null;	
