@@ -8,14 +8,14 @@ import org.medipaw.domain.NoteVO;
 import org.medipaw.mapper.AnimalHospMapper;
 
 public interface AnimalHospService {
-	public List<AnimalHospVO> selectAllPaging(Criteria cri);//ÆäÀÌÂ¡
-	public int totalCount(Criteria cri);//ÆäÀÌÂ¡
-	public boolean modify(AnimalHospVO avo);//µ¿¹°º´¿ø ¼öÁ¤
-	public boolean remove(int ano);//µ¿¹°º´¿ø »èÁ¦
-	public boolean register(AnimalHospVO avo);//µ¿¹°º´¿ø µî·Ï
-	public List<AnimalHospVO> selectAll();//ÀüÃ¼¸ñ·Ï - ? ¾ø¾îµµ µÇÁö ¾ÊÀ»±î ½Í¾î¼­ °í¹ÎÁß
-	public AnimalHospVO select(int ano);//»ó¼¼Á¶È¸
-	public List<AnimalHospVO> selectByAddr(Criteria cri,String addr);//ÁÖ¼ÒÃ¢ °Ë»ö Á¶È¸
-	public List<AnimalHospVO> selectByMap(Criteria cri,double aLatitude, double aHardness);//Áöµµ»ó °Ë»ö Á¶È¸
+	public List<AnimalHospVO> selectAllPaging(Criteria cri);//í˜ì´ì§•
+	public int totalCount(Criteria cri);//í˜ì´ì§•
+	public boolean modify(AnimalHospVO avo);//ë™ë¬¼ë³‘ì› ìˆ˜ì •
+	public boolean remove(String sid);//ë™ë¬¼ë³‘ì› ì‚­ì œ
+	public boolean register(AnimalHospVO avo);//ë™ë¬¼ë³‘ì› ë“±ë¡
+	public List<AnimalHospVO> selectAll();//ì „ì²´ëª©ë¡ - ? ì—†ì–´ë„ ë˜ì§€ ì•Šì„ê¹Œ ì‹¶ì–´ì„œ ê³ ë¯¼ì¤‘
+	public AnimalHospVO select(int ano);//ìƒì„¸ì¡°íšŒ
+	public List<AnimalHospVO> selectByAddr(Criteria cri,String addr);//ì£¼ì†Œì°½ ê²€ìƒ‰ ì¡°íšŒ
+	public List<AnimalHospVO> selectByMap(Criteria cri,double aLatitude, double aHardness);//ì§€ë„ìƒ ê²€ìƒ‰ ì¡°íšŒ
 	public List<AnimalHospVO> insertData(AnimalHospVO avo);
 }

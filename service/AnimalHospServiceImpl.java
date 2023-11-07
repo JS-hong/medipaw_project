@@ -3,6 +3,7 @@ package org.medipaw.service;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.medipaw.domain.Criteria;
@@ -15,9 +16,15 @@ import org.medipaw.mapper.AnimalHospMapper;
 public class AnimalHospServiceImpl implements AnimalHospService {
 	private final AnimalHospMapper animalHospMapper;
 	@Override
-	public List<AnimalHospVO> selectAllPaging(Criteria cri) {//¿©±â¼­ ½ÃÀÛ Mapper Á¢±ÙÇØ¼­ µ¥ÀÌÅÍ ºÒ·¯¿È ±×¸®°í µ¥ÀÌÅÍ Vo ¿¡ ÀúÀåÇÏ´Âµí		
+	public List<AnimalHospVO> selectAllPaging(Criteria cri) {//ì—¬ê¸°ì„œ ì‹œì‘ Mapper ì ‘ê·¼í•´ì„œ ë°ì´í„° ë¶ˆëŸ¬ì˜´ ê·¸ë¦¬ê³  ë°ì´í„° Vo ì— ì €ì¥í•˜ëŠ”ë“¯		
 		log.info("list..........");
 		return animalHospMapper.selectAllPaging(cri);
+	}
+	
+	@Override
+	public AnimalHospVO select(int ano) {
+		log.info("view..........");
+		return animalHospMapper.view(ano);
 	}
 
 	@Override
@@ -28,30 +35,27 @@ public class AnimalHospServiceImpl implements AnimalHospService {
 
 	@Override
 	public boolean modify(AnimalHospVO avo) {
-		// TODO Auto-generated method stub
-		return false;
+		log.info("update...." + avo);
+		boolean result = animalHospMapper.update(avo);
+		return result;
 	}
 
 	@Override
-	public boolean remove(int ano) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean remove(String sid) {
+		log.info("delete...." + sid);
+		boolean result = animalHospMapper.delete(sid);
+		return result;
 	}
 
 	@Override
 	public boolean register(AnimalHospVO avo) {
-		// TODO Auto-generated method stub
-		return false;
+		log.info("register...." + avo);
+		boolean result = animalHospMapper.insert(avo);
+		return result;
 	}
 
 	@Override
 	public List<AnimalHospVO> selectAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public AnimalHospVO select(int ano) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -64,8 +68,8 @@ public class AnimalHospServiceImpl implements AnimalHospService {
 
 	@Override
 	public List<AnimalHospVO> selectByMap(Criteria cri, double aLatitude, double aHardness) {
-		// TODO Auto-generated method stub
-		return null;
+		log.info("map_search_list..........");
+		return animalHospMapper.searchByMap(cri,aLatitude, aHardness);
 	}
 
 	@Override

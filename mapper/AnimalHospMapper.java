@@ -2,22 +2,23 @@ package org.medipaw.mapper;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
 import org.medipaw.domain.AnimalHospVO;
 import org.medipaw.domain.Criteria;
 
 public interface AnimalHospMapper {
-	public List<AnimalHospVO> selectAllPaging(Criteria cri);//ÆäÀÌÂ¡	
-	public int totalCount(Criteria cri);//ÆäÀÌÂ¡
-	public int update(AnimalHospVO avo);//µ¿¹°º´¿ø Á¤º¸ ¼öÁ¤
-	public int delete(int ano);//µ¿¹°º´¿ø Á¤º¸ »èÁ¦
-	public void insert(AnimalHospVO avo);//µ¿¹°º´¿ø Á¤º¸ µî·Ï
-	public List<AnimalHospVO> list();//ÀüÃ¼ ¸®½ºÆ® º¸±â
-	public AnimalHospVO view(int ano);//»ó¼¼º¸±â
+	public List<AnimalHospVO> selectAllPaging(Criteria cri);//í˜ì´ì§•	
+	public int totalCount(Criteria cri);//í˜ì´ì§•
+	public boolean update(AnimalHospVO avo);//ë™ë¬¼ë³‘ì› ì •ë³´ ìˆ˜ì •
+	public boolean delete(String sid);//ë™ë¬¼ë³‘ì› ì •ë³´ ì‚­ì œ
+	public boolean insert(AnimalHospVO avo);//ë™ë¬¼ë³‘ì› ì •ë³´ ë“±ë¡
+	public List<AnimalHospVO> list();//ì „ì²´ ë¦¬ìŠ¤íŠ¸ ë³´ê¸°
+	public AnimalHospVO view(int ano);//ìƒì„¸ë³´ê¸°
+	public AnimalHospVO Myview(String sid);//ë‚˜ì˜ ë³‘ì› ìƒì„¸ë³´ê¸°
 	
-	//°Ë»ö±â´É Áöµµ api °á°ú°ª ¹Ş¾Æ¿Í¼­ ±×°É·Î search
+	//ê²€ìƒ‰ê¸°ëŠ¥ ì§€ë„ api ê²°ê³¼ê°’ ë°›ì•„ì™€ì„œ ê·¸ê±¸ë¡œ search
 	public List<AnimalHospVO> searchByAddr(String addr);
 	
-	//Áöµµ¸¦ ¿Å±æ¶§¸¶´Ù ajax·Î searchÇØ¿À´Â °Íµµ ÇÊ¿äÇÔ 
-	//À§µµ °æµµ ¹İ°æ ¹üÀ§ ÇÑÁ¤À¸·Î
-	public List<AnimalHospVO> searchByMap(double aLatitude, double aHardness);
+	//ìœ„ë„ ê²½ë„ ë°˜ê²½ ë²”ìœ„ í•œì •ìœ¼ë¡œ ì§€ë„ë¥¼ ì˜®ê¸¸ë•Œë§ˆë‹¤ ajaxë¡œ searchí•´ì˜¤ëŠ” ê²ƒë„ í•„ìš”í•¨ 
+	public List<AnimalHospVO> searchByMap(@Param("cri") Criteria cri, @Param("aLatitude") double aLatitude, @Param("aHardness") double aHardness);    
 }

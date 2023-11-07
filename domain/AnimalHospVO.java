@@ -6,19 +6,20 @@ import lombok.Data;
 
 @Data
 public class AnimalHospVO {
-    int animalhosp_no; // µ¿¹°º´¿ø °íÀ¯¹øÈ£
-    String animalhosp_name; // »ç¾÷Àå¸í
-    Date license_date; // ÀÎÇã°¡ ³¯Â¥
-    String sales_status; // ¿µ¾÷»óÅÂ¸í
-    Date closed_date; // Æó¾÷ ³¯Â¥
-    String hsop_roadname_address; // ¼ÒÀçÁö µµ·Î¸íÁÖ¼Ò 
-    int hsop_postnum;//¼ÒÀçÁö ¿ìÆí¹øÈ£
-    double a_latitude;//À§µµ 
-    double a_hardness;//°æµµ 
-    String animalhosp_pic;//±âº» »çÁø 
-    String animalhosp_open;//¿µ¾÷½Ã°£ 
-	String animalhosp_rest;//ÈŞ¹«ÀÏ 
-	double star_total;//ÆòÁ¡ ÃÑÁ¡ 
-	int rv_cnt;//¸®ºä ¼ıÀÚ  
-	String hsop_phonenum;  //ÀüÈ­¹øÈ£  
+    int animalhosp_no; // ë™ë¬¼ë³‘ì› ê³ ìœ ë²ˆí˜¸
+    String animalhosp_name; // ì‚¬ì—…ì¥ëª…
+    Date license_date; // ì¸í—ˆê°€ ë‚ ì§œ
+    String sales_status; // ì˜ì—…ìƒíƒœëª…
+    Date closed_date; // íì—… ë‚ ì§œ
+    String hsop_roadname_address; // ì†Œì¬ì§€ ë„ë¡œëª…ì£¼ì†Œ 
+    int hsop_postnum;//ì†Œì¬ì§€ ìš°í¸ë²ˆí˜¸
+    double a_latitude;//ìœ„ë„ 
+    double a_hardness;//ê²½ë„ 
+    String animalhosp_pic;//ê¸°ë³¸ ì‚¬ì§„ 
+    String animalhosp_open;//ì˜ì—…ì‹œê°„ 
+	String animalhosp_rest;//íœ´ë¬´ì¼ 
+	double star_total;//í‰ì  ì´ì  
+	int rv_cnt;//ë¦¬ë·° ìˆ«ì  
+	String hsop_phonenum;  //ì „í™”ë²ˆí˜¸  
+	String sid;
 }
