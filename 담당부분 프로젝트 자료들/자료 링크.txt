@@ -1,0 +1,11 @@
+메뉴구조도, 기능정의
+https://docs.google.com/spreadsheets/d/1wtGudYgsQ4dkKGLF31tKTRdT6nzv0__6QdvcTJC1IXY/edit#gid=1014179332
+
+화면 흐름도
+https://drive.google.com/file/d/1_XKziQc8X3pgkZ_EJ9fXlVoqce4CGz3L/view?pli=1
+
+ERD
+https://www.erdcloud.com/d/4Gn7R8o2qcDY8jQdu
+
+ppt
+https://docs.google.com/presentation/d/1rdxE7pMd0QMao8Ymr_ncsDVIQO5HCiDXZFTERjPzbS4/edit#slide=id.p1
